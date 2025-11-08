@@ -1,0 +1,164 @@
+/* Estilos Gerais */
+body{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #333; /* Fundo escuro */
+    font-family: Arial, sans-serif;
+
+}
+
+.genius-container{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #222;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+
+}
+
+/* Informações do Jogo (Centro) */
+.game-info{
+
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+
+}
+
+.game-info h1{
+
+    color: #4CAF50; /* Verde Vibrante */
+
+}
+
+#start-button{
+
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+
+}
+
+#start-button:hover{
+
+    background-color: #0056b3;
+
+}
+
+/* Tabuleiro do Jogo (Círculo) */
+.game-board{
+
+    position: relative;
+    width: 400px; /* Largura total do tabuleiro */
+    height: 400px; /* Altura total do tabuleiro */
+    border-radius: 50%; /* Faz o formato de círculo */
+    background-color: #111;
+    display: grid;
+
+    /* Grid de 2x2 para posicionar os 4 botões */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px; /* Espaço entre os botões */
+    padding: 20px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.7);
+
+}
+
+/* Estilo Base dos Quadrados (Pads) */
+.pad{
+
+    cursor: pointer;
+    opacity: 0.6; /* Opacidade padrão (apagado) */
+    transition: opacity 0.2s ease-in-out;
+
+}
+
+.pad:active:not(.unclickable), .pad.active{
+
+    opacity: 1; /* Brilha quando ativo ou clicado */
+    transform: scale(1.05);
+    transition: transform 0.1s;
+
+}
+
+/* Cores e Bordas Arredondadas */
+
+/* 1. Verde (Top-Left) */
+.green{
+
+    background-color: #00a800;
+    border-top-left-radius: 100%;
+
+}
+
+/* 2. Vermelho (Top-Right) */
+.red{
+
+    background-color: #cc0000;
+    border-top-right-radius: 100%;
+
+}
+
+/* 3. Amarelo (Bottom-Left) */
+.yellow{
+
+    background-color: #cccc00;
+    border-bottom-left-radius: 100%;
+
+}
+
+/* 4. Azul (Bottom-Right) */
+.blue{
+
+    background-color: #0000cc;
+    border-bottom-right-radius: 100%;
+
+}
+
+/* Classe para o efeito de brilho (ativada pelo JavaScript) */
+.pad.active.green{
+
+    background-color: #4aff4a;
+    box-shadow: 0 0 15px #4aff4a;
+
+}
+
+.pad.active.red{
+
+    background-color: #ff4a4a;
+    box-shadow: 0 0 15px #ff4a4a;
+
+}
+
+.pad.active.yellow{
+
+    background-color: #ffff4a;
+    box-shadow: 0 0 15px #ffff4a;
+
+}
+
+.pad.active.blue{
+
+    background-color: #4a4aff;
+    box-shadow: 0 0 15px #4a4aff;
+
+}
+
+/* Estilo para quando o jogo está executando a sequência (evita cliques) */
+.unclickable{
+
+    pointer-events: none;
+
+}
